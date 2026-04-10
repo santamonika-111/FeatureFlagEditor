@@ -45,6 +45,7 @@ pnpm dev
 
 - ให้กดเข้าไปที่ส่วนของโจทย์การทดสอบ **Feature Flag Editor**
 - โค้ดสำหรับการทดสอบของคุณจะเริ่มต้นให้เขียนได้ที่ไฟล์ `/src/pages/code-challenge/feature-flag-form/your-codes/index.tsx`
+- คุณสามารถดูรายละเอียดของโจทย์ได้ที่ไฟล์ `/src/pages/code-challenge/feature-flag-form/README.md`
 
 ## 📝 Scripts
 
