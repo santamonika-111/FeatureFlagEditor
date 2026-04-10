@@ -9,55 +9,49 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CodeChallengeFeatureFlagFormRouteImport } from './routes/code-challenge.feature-flag-form'
 
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CodeChallengeFeatureFlagFormRoute =
+  CodeChallengeFeatureFlagFormRouteImport.update({
+    id: '/code-challenge/feature-flag-form',
+    path: '/code-challenge/feature-flag-form',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/code-challenge/feature-flag-form': typeof CodeChallengeFeatureFlagFormRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/code-challenge/feature-flag-form': typeof CodeChallengeFeatureFlagFormRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/code-challenge/feature-flag-form': typeof CodeChallengeFeatureFlagFormRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about'
+  fullPaths: '/' | '/code-challenge/feature-flag-form'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about'
-  id: '__root__' | '/' | '/about'
+  to: '/' | '/code-challenge/feature-flag-form'
+  id: '__root__' | '/' | '/code-challenge/feature-flag-form'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
+  CodeChallengeFeatureFlagFormRoute: typeof CodeChallengeFeatureFlagFormRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -65,12 +59,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/code-challenge/feature-flag-form': {
+      id: '/code-challenge/feature-flag-form'
+      path: '/code-challenge/feature-flag-form'
+      fullPath: '/code-challenge/feature-flag-form'
+      preLoaderRoute: typeof CodeChallengeFeatureFlagFormRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
+  CodeChallengeFeatureFlagFormRoute: CodeChallengeFeatureFlagFormRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

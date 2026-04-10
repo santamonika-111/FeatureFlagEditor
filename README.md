@@ -1,204 +1,68 @@
-Welcome to your new TanStack Start app! 
+# Frontend Test 2026 🚀
 
-# Getting Started
+> Frontend Developer Challenge
 
-To run this application:
+ยินดีต้อนรับสู่ **Frontend Test 2026**! โปรเจกต์นี้เป็นข้อสอบสำหรับการคัดเลือก Frontend Developer ซึ่งจะจำลองการพัฒนาแอปพลิเคชันจริงโดยเน้นเรื่อง Architecture, State Management, Validation และการทำ User Interface
 
-```bash
-npm install
-npm run dev
-```
+> ในปัจจุบันโปรเจกต์จะประกอบไปด้วยการทดสอบหลัก ได้แก่ The Feature Flag Editor
 
-# Building For Production
+## 🛠 Tech Stack
 
-To build this application for production:
+โปรเจกต์นี้ถูกเซ็ตอัปพื้นฐานด้วยเทคโนโลยีสมัยใหม่ เพื่อประสบการณ์การพัฒนาที่รวดเร็วและเป็นมาตรฐาน:
 
-```bash
-npm run build
-```
+- **Framework:** React 19 + [@tanstack/react-start](https://tanstack.com/start/latest)
+- **Routing:** [@tanstack/react-router](https://tanstack.com/router/latest)
+- **Form Management:** [@tanstack/react-form](https://tanstack.com/form/latest)
+- **Validation:** [Zod](https://zod.dev/)
+- **Code Editor / JSON Preview:** [@monaco-editor/react](https://github.com/suren-atoyan/monaco-react)
+- **Styling:** Tailwind CSS v4 + [shadcn/ui](https://ui.shadcn.com/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **Testing:** [Vitest](https://vitest.dev/)
 
-## Testing
+## 🚀 Getting Started
 
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
+กรุณาทำตามขั้นตอนด้านล่างเพื่อเริ่มการทดสอบ:
 
-```bash
-npm run test
-```
+### 1. การติดตั้ง (Installation)
 
-## Styling
-
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
-
-### Removing Tailwind CSS
-
-If you prefer not to use Tailwind CSS:
-
-1. Remove the demo pages in `src/routes/demo/`
-2. Replace the Tailwind import in `src/styles.css` with your own styles
-3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
-4. Uninstall the packages: `npm install @tailwindcss/vite tailwindcss -D`
-
-## Linting & Formatting
-
-
-This project uses [eslint](https://eslint.org/) and [prettier](https://prettier.io/) for linting and formatting. Eslint is configured using [tanstack/eslint-config](https://tanstack.com/config/latest/docs/eslint). The following scripts are available:
+โปรเจกต์นี้ใช้ `pnpm` เป็น Package Manager (หากคุณยังไม่มีสามารถติดตั้งได้ด้วย `npm install -g pnpm`)
 
 ```bash
-npm run lint
-npm run format
-npm run check
+pnpm install
 ```
 
+### 2. รันรันโปรเจกต์สำหรับการพัฒนา (Development)
 
-
-## Routing
-
-This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
-
-### Adding A Route
-
-To add a new route to your application just add a new file in the `./src/routes` directory.
-
-TanStack will automatically generate the content of the route file for you.
-
-Now that you have two routes you can use a `Link` component to navigate between them.
-
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from "@tanstack/react-router";
+```bash
+pnpm dev
 ```
 
-Then anywhere in your JSX you can use it like so:
+หลังจากรันคำสั่ง โปรเจกต์จะสามารถเข้าถึงได้ผ่าน `http://localhost:3000`
 
-```tsx
-<Link to="/about">About</Link>
-```
+### 3. ส่วนของการทดสอบ (Challenge)
 
-This will create a link that will navigate to the `/about` route.
+เมื่อเปิดโปรเจกต์ขึ้นมาบน Browser คุณจะพบกับหน้า **Assignment Dashboard**
 
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
+- ให้กดเข้าไปที่ส่วนของโจทย์การทดสอบ **Feature Flag Editor**
+- โค้ดสำหรับการทดสอบของคุณจะเริ่มต้นให้เขียนได้ที่ไฟล์ `/src/pages/code-challenge/feature-flag-form/your-codes/index.tsx`
 
-### Using A Layout
+## 📝 Scripts
 
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
+คุณสามารถใช้คำสั่งพื้นฐานเหล่านี้ในระหว่างการพัฒนาได้:
 
-Here is an example layout that includes a header:
+- `pnpm dev`: เริ่มต้น Development Server ที่ Port 3000
+- `pnpm build`: บิวด์โปรเจกต์สำหรับ Production
+- `pnpm preview`: จำลอง Production environment หลังจาก Build
+- `pnpm test`: รัน Unit Tests ด้วย Vitest
+- `pnpm format`: จัด Format โค้ดของคุณด้วย Prettier
+- `pnpm lint`: ตรวจสอบความถูกต้องของโค้ดด้วย ESLint
+- `pnpm check`: จัด Format โค้ดและแก้ไข Lint รวดเดียว
 
-```tsx
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+## 🎯 กฎและกติกา (Rules & Guidelines)
 
-export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'My App' },
-    ],
-  }),
-  shellComponent: ({ children }) => (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </nav>
-        </header>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  ),
-})
-```
+1. **อ่านข้อกำหนดของแต่ละโจทย์ (Requirements) ให้ชัดเจน:** คุณสามารถดูเงื่อนไข และฟีเจอร์ที่ต้องมีได้ในหน้าโจทย์แต่ละข้อ
+2. **ใช้ Tools ที่กำหนด:** กรุณาใช้เครื่องมือที่กำหนดใน Requirements เช่น `@tanstack/react-form` และ `zod`
+3. **จัดระเบียบโค้ดให้สวยงามและอ่านง่าย:** คำนึงถึงการแบ่ง Components, Naming Conventions, และ Performance ตามมาตรฐานของ Senior Developer
+4. **ความสมบูรณ์แบบของ UI/UX:** เนื่องจากโจทย์เป็นการจำลองระบบจริง ให้ทำ UI/UX ออกมาให้ดีและใช้ประโยชน์จาก Tailwind CSS ให้ได้มากที่สุด
 
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-## Server Functions
-
-TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
-
-```tsx
-import { createServerFn } from '@tanstack/react-start'
-
-const getServerTime = createServerFn({
-  method: 'GET',
-}).handler(async () => {
-  return new Date().toISOString()
-})
-
-// Use in a component
-function MyComponent() {
-  const [time, setTime] = useState('')
-  
-  useEffect(() => {
-    getServerTime().then(setTime)
-  }, [])
-  
-  return <div>Server time: {time}</div>
-}
-```
-
-## API Routes
-
-You can create API routes by using the `server` property in your route definitions:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-import { json } from '@tanstack/react-start'
-
-export const Route = createFileRoute('/api/hello')({
-  server: {
-    handlers: {
-      GET: () => json({ message: 'Hello, World!' }),
-    },
-  },
-})
-```
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/people')({
-  loader: async () => {
-    const response = await fetch('https://swapi.dev/api/people')
-    return response.json()
-  },
-  component: PeopleComponent,
-})
-
-function PeopleComponent() {
-  const data = Route.useLoaderData()
-  return (
-    <ul>
-      {data.results.map((person) => (
-        <li key={person.name}>{person.name}</li>
-      ))}
-    </ul>
-  )
-}
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-# Demo files
-
-Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
-
-# Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
-
-For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
+ขอให้โชคดี! 🍀
